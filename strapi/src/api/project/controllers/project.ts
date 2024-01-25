@@ -193,9 +193,9 @@ export default factories.createCoreController('api::project.project', ({strapi})
             limit: 20
           }
         );
-
+      
       //NOTE .projects löschen dann erhält man keine Category Infos mehr
-      result[i]/*.projects*/ = projects;
+      result[i]/*.projects*/ = projects.filter(project => project.publishedAt !== null);
     }
 
     const publishedProjects = result.filter(project => project.publishedAt !== null);
